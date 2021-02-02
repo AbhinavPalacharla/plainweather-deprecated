@@ -1,8 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
 
-import Image from "../components/image"
-import SEO from "../components/seo"
 import Header from "../components/Header"
 import BigWeather from "../components/BigWeather"
 import WeeklyForecast from "../components/WeeklyForecast"
