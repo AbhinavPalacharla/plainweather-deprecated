@@ -11,28 +11,30 @@ const Index = () => {
   const [data, setData] = React.useState(null)
 
   React.useEffect(() => {
-    fetch("/.netlify/functions/getWeather")
-      .then(res => res.json())
-      .then(data => setData(data))
+    const getData = async () => {
+      const res = await fetch("/.netlify/functions/getWeather")
+      const data = await res.json()
+      const item = data.weather
+      // setData({ data })
+      setData(item)
+    }
+    getData()
   }, [])
 
   return (
     <div>
-      <Header location={data.location} date={data.date} />
-      <BigWeather
-        temperature={data.dailyTemperature}
-        hour={data.hour}
-        day={data.day}
-        conditions={data.conditions}
-      />
-      <WeeklyForecast forecast={data.weeklyWeather} />
-      {/* <Header location="San Diego, CA" date="1.31.2021" />
-      <BigWeather
-        temperature="52"
-        hour="12:00"
-        day="Monday"
-        conditions="Cloudy"
-      /> */}
+      {data && (
+        <div>
+          <Header location={data.location} date={data.date} />
+          <BigWeather
+            temperature={data.dailyTemperature}
+            hour={data.hour}
+            day={data.day}
+            conditions={data.conditions}
+          />
+          <WeeklyForecast forecast={data.weeklyWeather} />
+        </div>
+      )}
     </div>
   )
 }

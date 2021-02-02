@@ -66,20 +66,27 @@ exports.handler = async (event, context) => {
   return {
     statusCode: 200,
     body: JSON.stringify({
-      location: "San Diego, CA",
-      date: `${
-        new Date().getMonth() +
-        1 +
-        "." +
-        new Date().getDate() +
-        "." +
-        new Date().getFullYear()
-      }`,
-      dailyTemperature: `${Math.round(weather.current.temp)}°`,
-      hour: `${new Date().getHours()}:00`,
-      day: weekly[new Date().getDay()].day,
-      conditions: weather.current.weather[0].description,
-      weeklyWeather: weekly,
+      weather: {
+        location: "San Diego, CA",
+        date: `${
+          new Date().getMonth() +
+          1 +
+          "." +
+          new Date().getDate() +
+          "." +
+          new Date().getFullYear()
+        }`,
+        dailyTemperature: `${Math.round(weather.current.temp)}°`,
+        hour: `${new Date().getHours()}:00`,
+        day: weekly[new Date().getDay()].day,
+        conditions: weather.current.weather[0].description,
+        weeklyWeather: weekly,
+      },
     }),
   }
+
+  // return {
+  //   statusCode: 200,
+  //   body: JSON.stringify({ test: "this is just a test" }),
+  // }
 }
