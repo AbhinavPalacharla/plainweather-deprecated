@@ -75,8 +75,8 @@ exports.handler = async (event, context) => {
   let j = 0
 
   for (let i = 0; i < weekly.length; i++) {
-    let maxTemp = weather.daily[j].temp.max
-    let minTemp = weather.daily[j].temp.min
+    let maxTemp = Math.round(weather.daily[j].temp.max)
+    let minTemp = Math.round(weather.daily[j].temp.min)
     weekly[day].tempHigh = maxTemp
     weekly[day].tempLow = minTemp
     day++
