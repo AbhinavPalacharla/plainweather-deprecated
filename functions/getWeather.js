@@ -96,7 +96,7 @@ exports.handler = async (event, context) => {
     statusCode: 200,
     body: JSON.stringify({
       weather: {
-        location: unix,
+        location: "San Diego, CA",
         date: `${
           new Date(unix * 1000).getMonth() +
           1 +
@@ -106,7 +106,7 @@ exports.handler = async (event, context) => {
           new Date(unix * 1000).getFullYear()
         }`,
         dailyTemperature: `${Math.round(weather.current.temp)}°`,
-        hour: `${new Date(unix * 1000).getHours()}:00`,
+        hour: `${new Date(unix * 1000).getHours() - 8}:00`,
         day: weekly[new Date().getDay()].day,
         conditions: weather.current.weather[0].description,
         weeklyWeather: weekly,

@@ -16,6 +16,7 @@
     "gatsby-plugin-sharp": "^2.8.0",
     "gatsby-source-filesystem": "^2.5.0",
     "gatsby-transformer-sharp": "^2.6.0",
+    "moment-timezone": "^0.5.32",
     "netlify": "^6.1.6",
     "netlify-cli": "^3.4.6",
     "postcss": "^8.2.4",
