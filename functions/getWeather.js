@@ -56,11 +56,21 @@ exports.handler = async (event, context) => {
 
   let weather = data
 
-  for (let i = 0; i < weekly.length; i++) {
-    let day = new Date(weather.daily[i].dt * 1000).getDay()
-    //weekly[i].temp = date.getDay();
-    weekly[i].tempHigh = Math.round(weather.daily[i].temp.max)
-    weekly[i].tempLow = Math.round(weather.daily[i].temp.min)
+  // for (let i = 0; i < weekly.length; i++) {
+  //   let day = new Date(weather.daily[i].dt * 1000).getDay() - 1
+  //   //weekly[i].temp = date.getDay();
+  //   weekly[i].tempHigh = Math.round(weather.daily[i].temp.max)
+  //   weekly[i].tempLow = Math.round(weather.daily[i].temp.min)
+  // }
+  let day = new Date().getDay()
+
+  for (let i = 0; i < weather.daily.length && weekly[day].tempHigh === 0; i++) {
+    weekly[day].tempHigh = Math.round(weather.daily[i].temp.max)
+    weekly[day].tempLow = Math.round(weather.daily[i].temp.min)
+    day++
+    if (day === 6) {
+      day = 0
+    }
   }
 
   return {
