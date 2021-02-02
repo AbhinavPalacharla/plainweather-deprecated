@@ -96,7 +96,7 @@ exports.handler = async (event, context) => {
     statusCode: 200,
     body: JSON.stringify({
       weather: {
-        location: "San Diego, CA",
+        location: unix,
         date: `${
           new Date(unix * 1000).getMonth() +
           1 +
