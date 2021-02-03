@@ -92,6 +92,14 @@ exports.handler = async (event, context) => {
       return res.data.unixtime
     })
 
+  let current_hour = () => {
+    let hours = new Date(unix * 1000).getHours()
+    if (hours >= 1 && hours < 8) {
+      hours += 24
+    }
+    return hours - 8
+  }
+
   return {
     statusCode: 200,
     body: JSON.stringify({
@@ -106,7 +114,8 @@ exports.handler = async (event, context) => {
           new Date(unix * 1000).getFullYear()
         }`,
         dailyTemperature: `${Math.round(weather.current.temp)}°`,
-        hour: `${new Date(unix * 1000).getHours() - 8}:00`,
+        //hour: `${new Date(unix * 1000).getHours() - 8}:00`,
+        hour: current_hour(),
         day: weekly[new Date().getDay()].day,
         conditions: weather.current.weather[0].description,
         weeklyWeather: weekly,
