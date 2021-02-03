@@ -6,16 +6,22 @@ const WeeklyForecast = props => {
   for (let i = 0; i < props.forecast.length; i++) {
     elements.push(
       <li key={props.forecast[i].day}>
-        <p>{props.forecast[i].day}</p>
-        <h1>{props.forecast[i].tempHigh + "°"}</h1>
-        <h1>{props.forecast[i].tempLow + "°"}</h1>
+        <div className="flex flex-col content-center px-8">
+          <h1 className="font-light">{props.forecast[i].abbrev_day}</h1>
+          <p className="font-semibold pt-1">
+            {props.forecast[i].tempHigh + "°"}
+          </p>
+          <p className="font-semibold pt-1">
+            {props.forecast[i].tempLow + "°"}
+          </p>
+        </div>
       </li>
     )
   }
 
   return (
-    <div>
-      <ul>{elements}</ul>
+    <div className="text-blackText pt-24 pb-6 container-lg mx-auto">
+      <ul className="flex flex-row">{elements}</ul>
     </div>
   )
 }

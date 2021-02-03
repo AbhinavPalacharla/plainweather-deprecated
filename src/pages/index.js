@@ -19,20 +19,22 @@ const Index = () => {
   }, [])
 
   return (
-    <div>
-      {data && (
-        <div>
-          <Header location={data.location} date={data.date} />
-          <BigWeather
-            temperature={data.dailyTemperature}
-            hour={data.hour}
-            day={data.day}
-            conditions={data.conditions}
-          />
-          <WeeklyForecast forecast={data.weeklyWeather} />
-        </div>
-      )}
-    </div>
+    <body className="bg-background font-apple font-normal">
+      <div>
+        {data && (
+          <div>
+            <Header location={data.location} date={data.date} />
+            <BigWeather
+              temperature={data.dailyTemperature}
+              hour={data.hour}
+              day={data.day}
+              conditions={data.conditions}
+            />
+            <WeeklyForecast forecast={data.weeklyWeather} />
+          </div>
+        )}
+      </div>
+    </body>
   )
 }
 
