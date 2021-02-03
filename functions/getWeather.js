@@ -115,7 +115,7 @@ exports.handler = async (event, context) => {
         }`,
         dailyTemperature: `${Math.round(weather.current.temp)}°`,
         //hour: `${new Date(unix * 1000).getHours() - 8}:00`,
-        hour: current_hour(),
+        hour: `${current_hour()}:00`,
         day: weekly[new Date().getDay()].day,
         conditions: weather.current.weather[0].description,
         weeklyWeather: weekly,
