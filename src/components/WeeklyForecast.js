@@ -8,10 +8,10 @@ const WeeklyForecast = props => {
       <li key={props.forecast[i].day}>
         <div className="flex flex-col content-center px-8">
           <h1 className="font-light">{props.forecast[i].abbrev_day}</h1>
-          <p className="font-semibold pt-1">
+          <p className="font-semibold pt-2">
             {props.forecast[i].tempHigh + "°"}
           </p>
-          <p className="font-semibold pt-1">
+          <p className="font-semibold pt-2">
             {props.forecast[i].tempLow + "°"}
           </p>
         </div>
@@ -20,7 +20,7 @@ const WeeklyForecast = props => {
   }
 
   return (
-    <div className="text-blackText pt-24 pb-6 container-lg mx-auto">
+    <div className="text-blackText pt-60 flex justify-center">
       <ul className="flex flex-row">{elements}</ul>
     </div>
   )

@@ -2,7 +2,7 @@ import React from "react"
 
 const BigWeather = props => {
   return (
-    <div className="text-blackText font-apple flex flex-row p-48 justify-center">
+    <div className="text-blackText font-apple flex flex-row mt-48 mb-2 justify-center">
       <div>
         <h1 className="font-bold text-hero">{props.temperature}</h1>
       </div>

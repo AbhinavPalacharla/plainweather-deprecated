@@ -19,7 +19,7 @@ const Index = () => {
   }, [])
 
   return (
-    <body className="bg-background font-apple font-normal">
+    <body className="bg-background font-apple font-normal h-screen">
       <div>
         {data && (
           <div>
